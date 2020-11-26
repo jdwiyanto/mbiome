@@ -1,20 +1,34 @@
 Package: mbiome
-Title: What the Package Does (One Line, Title Case)
+Title: A convenient wrapper to visualise and run core analyses for multi-variable microbiome data
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Jacky",
+           family = "Dwiyanto",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "jacky.dwiyanto@gmail.com",
+           comment = c(ORCID = "0000-0002-1224-5553"))
+Description: A wrapper package for the convenient visualisation of microbiome data.
+License: `use_mit_license()`
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
+        cowplot,
+        DESeq2,
+        DirichletMultinomial,
+        dplyr,
         ggpubr,
         ggplot2,
-        dplyr
+        ggsci,
+        lattice,
+        mixOmics,
+        phyloseq,
+        propr,
+        rlang,
+        tibble,
+        tidyr,
+        SpiecEasi,
+        vegan
+        
+        
