@@ -6,6 +6,7 @@
 #' @param var A variable to plot
 #' @param fill A variable to classify
 #' @return a ggplot2 object
+#' @export
 jd_plot_demo <- function(ps, var, fill) {
 
 sampledata <- sample_data(ps)
