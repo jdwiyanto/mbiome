@@ -16,8 +16,7 @@ jd_annotate = function(ps, df) {
   return(data)
 }
 
-# return taxa name for pathway ps
-
+#' @export
 jd_annotate_path = function(ps, df) {
   toget = df %>% rownames
   taxname = phyloseq::tax_table(ps)[toget,] %>% data.frame
