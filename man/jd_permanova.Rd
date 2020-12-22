@@ -4,7 +4,7 @@
 \alias{jd_permanova}
 \title{Calculates PERMANOVA}
 \usage{
-jd_permanova(ps, var, strata = NA)
+jd_permanova(ps, var, strata = NA, mtd = "euclidean")
 }
 \arguments{
 \item{ps}{A phyloseq object -- raw reads}
