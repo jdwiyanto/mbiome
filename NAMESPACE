@@ -3,6 +3,7 @@
 export(jd_age_dec)
 export(jd_alpha_stat)
 export(jd_annotate)
+export(jd_annotate_path)
 export(jd_bmi_cat)
 export(jd_bp_cat)
 export(jd_clr)
