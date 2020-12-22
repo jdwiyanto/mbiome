@@ -2,7 +2,7 @@
 % Please edit documentation in R/jd_annotate.R
 \name{jd_annotate}
 \alias{jd_annotate}
-\title{Extract taxa names}
+\title{Extract taxa names. jd_annotate_path() is specifically for phyloseq object containing pseudo-pathway names}
 \usage{
 jd_annotate(ps, df)
 }
@@ -15,5 +15,5 @@ jd_annotate(ps, df)
 data frame containing taxonomy names
 }
 \description{
-Extract taxa names
+Extract taxa names. jd_annotate_path() is specifically for phyloseq object containing pseudo-pathway names
 }
