@@ -1,11 +1,13 @@
 #' Plots the relative abundance of a microbiome dataset
 #'
 #' @param ps A phyloseq object -- raw read counts
-#' @param var A variable(s) to organise visualisation
-#' @param taxrank A taxa level to visualise
+#' @param var A character string denoting the variable to be plotted. supports multiple variables
+#' @param taxrank (for jd_plot_rel) A taxa level to visualise
 #' @return A ggplot2 object
 #' @export
 jd_plot_rel <- function(ps, var, taxrank) {
+
+  colnames(tax_table(ps)) = tolower(colnames(tax_table(ps)))
 
   figlist = lapply(var, function(xx) {
 
@@ -50,6 +52,33 @@ jd_plot_rel <- function(ps, var, taxrank) {
 
   } else {
 
+    fig = ggpubr::ggarrange(plotlist = figlist, common.legend = T)
+    return(fig)
+  }
+}
+
+jd_plot_phyla = function (ps, var) {
+  figlist = lapply(var, function(xx) {
+    sampledata = phyloseq::sample_data(ps)
+    sampledata = subset(sampledata, !is.na(sampledata[[xx]]))
+    ps2 = phyloseq::phyloseq(sampledata, otu_table(ps), tax_table(ps))
+
+    ps2 = ps2 %>% phyloseq::tax_glom('Phylum')
+    keep = taxa_sums(ps2) > 0.1
+    ps2 = phyloseq::prune_taxa(keep, ps2) %>% phyloseq::psmelt() %>% dplyr::arrange('Phylum')
+
+    figrel = ggplot2::ggplot(ps2, aes_string(x = xx, y = "Abundance", fill = 'Phylum')) +
+      ggplot2::geom_bar(stat = "identity", position = "fill") + ggplot2::labs(x = "group", y = "Relative abundance (%)") +
+      ggplot2::theme_bw() + ggplot2::theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.title = element_blank(), legend.position = "bottom") +
+      ggplot2::guides(fill = guide_legend(nrow = 5, byrow = T)) +
+      ggsci::scale_fill_d3(palette = "category20")
+    return(figrel)
+  })
+  if (var %>% length > 1) {
+    fig = ggpubr::ggarrange(plotlist = figlist, common.legend = T, labels = "auto")
+    return(fig)
+  }
+  else {
     fig = ggpubr::ggarrange(plotlist = figlist, common.legend = T)
     return(fig)
   }

@@ -1,7 +1,7 @@
 #' Transform raw read counts using centered-log transformation approach
 #'
-#' @param ps a phyloseq object with raw read counts
-#' @return a phyloseq object with CLR-transformed read counts
+#' @param ps a phyloseq object with raw read counts. taxa have to be the columns (ensure that otu_table(ps, taxa_are_rows = F))
+#' @return a phyloseq object with CLR-transformed read counts (with taxa_are_rows = T)
 #' @export
 jd_clr <- function(ps) {
 
