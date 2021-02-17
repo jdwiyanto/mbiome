@@ -1,4 +1,5 @@
 #' Calculates differential abundance statistics based on DESeq2
+#'
 #' @param ps A phyloseq object
 #' @param var A variable to analyse
 #' @param threshold A number to filter features with less than the chosen number log-fold changes. Defaults to 1.5

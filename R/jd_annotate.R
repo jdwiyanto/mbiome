@@ -1,4 +1,4 @@
-#' Extract taxa names
+#' Extract taxa names. jd_annotate_path() is specifically for phyloseq object containing pseudo-pathway names
 #'
 #' @param ps A phyloseq object from where the taxa names will be extracted
 #' @param df A dataframe, whose rownames are taxa codes
