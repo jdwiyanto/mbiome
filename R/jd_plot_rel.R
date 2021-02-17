@@ -57,6 +57,7 @@ jd_plot_rel <- function(ps, var, taxrank) {
   }
 }
 
+#' @export
 jd_plot_phyla = function (ps, var) {
   figlist = lapply(var, function(xx) {
     sampledata = phyloseq::sample_data(ps)

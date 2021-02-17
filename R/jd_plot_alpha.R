@@ -41,6 +41,7 @@ jd_plot_alpha <- function(ps, var, measures = c('Chao1', 'Shannon')) {
 
 }
 
+#' @export
 jd_plot_alpha_stat = function (ps, var, measure = "Shannon", stat = "kruskal.test")
 {
   figlist = lapply(var, function(var) {
