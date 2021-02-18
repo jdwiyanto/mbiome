@@ -60,7 +60,7 @@ jd_plot_rel <- function(ps, var, taxrank) {
 #' @export
 jd_biome_rel = function(ps = ps.core.genus, testvar = testvar) {
 
-  p.rel <- ps.genus.core %>% phyloseq::tax_glom('Phylum') %>%
+  p.rel <- ps %>% phyloseq::tax_glom('Phylum') %>%
     phyloseq::transform_sample_counts(function(x) {x/sum(x)} ) %>%
     phyloseq::psmelt() %>%
     dplyr::arrange(Phylum)
