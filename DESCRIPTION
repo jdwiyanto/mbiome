@@ -16,7 +16,6 @@ RoxygenNote: 7.1.1
 Imports: 
         cowplot,
         DESeq2,
-        DirichletMultinomial,
         dplyr,
         ggpubr,
         ggplot2,
