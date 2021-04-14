@@ -16,7 +16,7 @@ figlist = lapply(var, function(var) {
 
   fig <- phyloseq::plot_ordination(ps2, type = "samples", ordination = ord, color = var) +
          ggplot2::theme_bw() +
-         ggsci::scale_color_d3(palette = 'category20')
+         ggsci::scale_color_igv(palette = 'default')
 
   return(fig)
 
